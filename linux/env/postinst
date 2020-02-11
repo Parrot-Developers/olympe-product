@@ -65,9 +65,7 @@ PYTHON=${PYTHON_TMPENV_DIR}/bin/python3
 env -i PATH=/usr/bin:/bin ${PYTHON} -EsS "${GET_PIP}" --prefix "${PYTHON_TMPENV_DIR}" --no-warn-script-location virtualenv --ignore-installed
 
 # Now that we have this new python env, create our definitive virtualenvs
-if [ ! -e "${PYTHON_ENV_DIR}/py3/bin/python" ]; then
-  PYTHONUSERBASE="${PYTHON_TMPENV_DIR}" ${PYTHON} -m virtualenv -p ${PYTHON} ${PYTHON_ENV_DIR}/py3
-fi
+PYTHONUSERBASE="${PYTHON_TMPENV_DIR}" ${PYTHON} -m virtualenv --copies -p ${PYTHON} ${PYTHON_ENV_DIR}/py3
 PYTHON=/usr/bin/python3
 rm -rf "${BOOTSTRAP_DIR}"
 
