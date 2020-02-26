@@ -34,8 +34,12 @@ for m in ${MODULES}; do
 done
 
 
-# modules from build's staging-host folder
-# arsdkgen needs to be executed from there according to arsdk-xml/atom.mk
+# Add alchemy "final" and staging-host folders to the python path
+# arsdkgen needs to be executed from staging-host according to arsdk-xml/atom.mk
+PYTHONPATH="${PYTHONPATH}:${ROOT_DIR}/out/olympe-linux/final/usr/lib/python"
+PYTHONPATH="${PYTHONPATH}:${ROOT_DIR}/out/olympe-linux/final/usr/lib/python/site-packages"
+PYTHONPATH="${PYTHONPATH}:${ROOT_DIR}/out/olympe-linux/final/usr/local/lib/python"
+PYTHONPATH="${PYTHONPATH}:${ROOT_DIR}/out/olympe-linux/final/usr/local/lib/python/site-packages"
 PYTHONPATH="${PYTHONPATH}:${ROOT_DIR}/out/olympe-linux/staging-host/usr/lib/arsdkgen"
 
 export PYTHONPATH
